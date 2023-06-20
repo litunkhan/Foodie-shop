@@ -23,7 +23,7 @@ import slide_image_7 from './images7.jpg';
 const Foodslider = ()=> {
     
   return (
-    <div className=" pb-20 bg-white/200 backdrop-filter backdrop-blur-lg shadow-md ">
+    <div className=" pb-20  mt-[20px]  ">
         <h3 className="text-2xl text-center mb-8 font-bold text-black">Our Popular Items</h3>
 
       <Swiper

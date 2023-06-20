@@ -1,11 +1,15 @@
 import Foodslider from "./HomeFoodslider/Foodslider";
+import Herosection from "./herosections/Herosection";
 
 
 const Home = () => {
     return (
-        <div className="mt-20 bg-gray-100">
+        <>
+        <Herosection></Herosection>
+        <div className="mt-10">
             <Foodslider></Foodslider>
         </div>
+        </>
     );
 };
 
