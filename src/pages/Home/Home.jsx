@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <>
         <Herosection></Herosection>
-        <div className="mt-10">
+        <div className="">
             <Foodslider></Foodslider>
         </div>
         </>

@@ -23,9 +23,15 @@ import slide_image_7 from './images7.jpg';
 const Foodslider = ()=> {
     
   return (
-    <div className=" pb-20  mt-[20px]  ">
-        <h3 className="text-2xl text-center mb-8 font-bold text-black">Our Popular Items</h3>
-
+<div className=" pb-10  mt-[0px] bg-[#F8F7F2] pt-9 md:flex justify-center md:items-center flex-col md:flex-row ">
+  <div className="md:w-2/4">
+<h3 className="text-5xl mb-5 text-left font-sans] md:ml-12     font-bold text-black ">
+The Specialty of <br></br>The House</h3>
+<p className="md:ml-14">Discover the unparalleled Specialty of the House at Foodie-Restaurant: the Deluxe Chicken Sandwich. Succulent grilled chicken,  Savor the explosion of flavors with our side of Sweet Potato Fries, </p>
+<button className="bg-orange-600 mt-5 md:ml-14 text-white hover:bg-white hover:text-black font-bold py-2 px-4 rounded-md w-[160px] transition-all duration-300 hover:border-2 hover:border-orange-500 hover:translate-y-1">
+      Order Now
+    </button>
+</div>
       <Swiper
         effect={"coverflow"}
         slidesPerView={4}
@@ -76,6 +82,7 @@ const Foodslider = ()=> {
        
        
       </Swiper>
+      
     </div>
   );
 }

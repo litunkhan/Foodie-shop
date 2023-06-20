@@ -2,16 +2,17 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../Firebase/Authprobider";
-// import {  updateProfile } from 'firebase/auth';
+
+import {  updateProfile } from 'firebase/auth';
 import { AiFillEye } from "react-icons/ai";
 import loginAnimation from '../../../public/119048-login-verification.json'
 import Lottie from "lottie-react";
+import { AuthContext } from "../../Firebase/Authprobider";
 
 const RegistrationPage = () => {
   const [text,settext] = useState(true)
-//   const {signIn } = useContext(AuthContext)
-//   const navigate = useNavigate()
+  const {signIn } = useContext(AuthContext)
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -21,32 +22,32 @@ const RegistrationPage = () => {
   const onSubmit = (data) => {
     // Handle registration logic here
     console.log(data);
-    // signIn(data.email,data.password)
-    //     .then(res=>{
-    //         console.log(res.user)
-    //         //  navigate('/login')
-    //         updateProfile(res.user,{displayName:data.name,photoURL:data.image})
-    //         .then(()=>{
-    //           const saveUser = {name:data.name,email:data.email,image:data.image}
-    //           fetch(`${import.meta.env.VITE_URL}/user`,{
-    //             method:'POST',
-    //             headers:{
-    //              'Content-Type':'application/json'
-    //             },
-    //             body:JSON.stringify(saveUser)
-    //           })
-    //           .then(res=>res.json())
-    //           .then(datas=>{
-    //             if(datas.insertedId){
-    //              navigate('/login')
-    //             }
-    //           })
-    //        })
+    signIn(data.email,data.password)
+        .then(res=>{
+            console.log(res.user)
+             navigate('/login')
+            updateProfile(res.user,{displayName:data.name,photoURL:data.image})
+          //   .then(()=>{
+          //     const saveUser = {name:data.name,email:data.email,image:data.image}
+          //     fetch(`${import.meta.env.VITE_URL}/user`,{
+          //       method:'POST',
+          //       headers:{
+          //        'Content-Type':'application/json'
+          //       },
+          //       body:JSON.stringify(saveUser)
+          //     })
+          //     .then(res=>res.json())
+          //     .then(datas=>{
+          //       if(datas.insertedId){
+          //        navigate('/login')
+          //       }
+          //     })
+          //  })
            
-    //    })
-    //    .catch(err=>{
-    //       console.log(err.message)
-    //    })
+       })
+       .catch(err=>{
+          console.log(err.message)
+       })
   };
 
   return (

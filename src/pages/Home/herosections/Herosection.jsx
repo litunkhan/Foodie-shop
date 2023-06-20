@@ -2,7 +2,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import images1 from './burger.jpg'
-import images2 from './pizza.jpg'
+import images2 from './pizza3.jpg'
 import images3 from './saladwinsbanner.jpg'
 const Herosection = () => {
     return (
