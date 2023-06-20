@@ -13,15 +13,15 @@ const Herosection = () => {
              infiniteLoop={true}
              transitionTime={8}>
                 <div>
-                    <img className='h-[100vh]' src={images1} alt='image-1'/>
+                    <img className=' h-[50vh]  md:h-[100vh]' src={images1} alt='image-1'/>
                     
                 </div>
                 <div>
-                    <img className='h-[100vh]'  src={images2}alt='image-2' />
+                    <img className=' h-[50vh] md:h-[100vh]'  src={images2}alt='image-2' />
                     
                 </div>
                 <div>
-                    <img className='h-[100vh]' src={images3}alt='image-3' />
+                    <img className='h-[50vh] md:h-[100vh]' src={images3}alt='image-3' />
                    
                 </div>
             </Carousel>
