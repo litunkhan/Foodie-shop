@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import LoginPage from './pages/Login/Loginpage';
 import RegistrationPage from './pages/Register/Register';
 import Authprobider from './Firebase/Authprobider';
+import Contact from './pages/Contactus/Contact';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
+      },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
       },
       {
         path:'/login',

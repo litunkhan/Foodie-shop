@@ -36,7 +36,7 @@ const Authprobider = ({children}) => {
           const unSubcribe =onAuthStateChanged(auth, (user) => {
             
              setuser(user)
-           
+             setloader(false);
 
 
             //  if(user){
