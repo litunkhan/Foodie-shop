@@ -34,29 +34,29 @@ const LoginPage = () => {
     })
   };
 
-//   const googleLoginhandle = ()=>{
-//     googleLogin()
-//     .then(res=>{
-//       const logedInUser = res.user
-// const saveUser = {name:logedInUser.displayName,email:logedInUser.email,image:logedInUser.photoURL}
-//       fetch(`${import.meta.env.VITE_URL}/user`,{
-//               method:'POST',
-//               headers:{
-//                'Content-Type':'application/json'
-//               },
-//               body:JSON.stringify(saveUser)
-//             })
-//             .then(res=>res.json())
-//             .then(()=>{
+  const googleLoginhandle = ()=>{
+    googleLogin()
+    .then(res=>{
+      const logedInUser = res.user
+const saveUser = {name:logedInUser.displayName,email:logedInUser.email,image:logedInUser.photoURL}
+      fetch(`${import.meta.env.VITE_URL}/user`,{
+              method:'POST',
+              headers:{
+               'Content-Type':'application/json'
+              },
+              body:JSON.stringify(saveUser)
+            })
+            .then(res=>res.json())
+            .then(()=>{
               
-//              navigate(from,{replace:true})
+             navigate(from,{replace:true})
               
-//             })
+            })
 
-//             navigate(from,{replace:true})
+            navigate(from,{replace:true})
       
-//    })
-//   }
+   })
+  }
 
   return (
     <div className="min-h-screen max-w-[1000px] mx-auto my-20 flex items-center justify-between bg-gray-100 flex-col-reverse  md:flex-row ">
@@ -119,7 +119,7 @@ const LoginPage = () => {
         <div className="text-center mb-4">
           <h3 className="text-lg font-medium">Or login with:</h3>
           <button 
-        //    onClick={googleLoginhandle}
+           onClick={googleLoginhandle}
            className="mt-4 bg-red-500 text-white py-2 px-4 rounded focus:outline-none hover:bg-red-600">
             Google
           </button>

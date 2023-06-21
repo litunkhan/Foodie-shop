@@ -27,22 +27,22 @@ const RegistrationPage = () => {
             console.log(res.user)
              navigate('/login')
             updateProfile(res.user,{displayName:data.name,photoURL:data.image})
-          //   .then(()=>{
-          //     const saveUser = {name:data.name,email:data.email,image:data.image}
-          //     fetch(`${import.meta.env.VITE_URL}/user`,{
-          //       method:'POST',
-          //       headers:{
-          //        'Content-Type':'application/json'
-          //       },
-          //       body:JSON.stringify(saveUser)
-          //     })
-          //     .then(res=>res.json())
-          //     .then(datas=>{
-          //       if(datas.insertedId){
-          //        navigate('/login')
-          //       }
-          //     })
-          //  })
+            .then(()=>{
+              const saveUser = {name:data.name,email:data.email,image:data.image}
+              fetch(`${import.meta.env.VITE_URL}/user`,{
+                method:'POST',
+                headers:{
+                 'Content-Type':'application/json'
+                },
+                body:JSON.stringify(saveUser)
+              })
+              .then(res=>res.json())
+              .then(datas=>{
+                if(datas.insertedId){
+                 navigate('/login')
+                }
+              })
+           })
            
        })
        .catch(err=>{

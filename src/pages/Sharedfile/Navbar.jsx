@@ -5,7 +5,7 @@ import { AiOutlineAlignCenter } from "react-icons/ai";
 import { AuthContext } from '../../Firebase/Authprobider';
 
 const Nav = () => {
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
     let Links =[
       {name:"Home",link:"/"},
       {name:"Menu",link:"/menu"},
@@ -44,7 +44,9 @@ const Nav = () => {
             duration-500'>
              Login
             </button></Link>:
-            <button className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 
+            <button 
+            onClick={()=>logOut()}
+            className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 
             duration-500'>
              Logout
             </button>

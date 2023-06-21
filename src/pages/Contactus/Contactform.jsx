@@ -31,6 +31,8 @@ const Contactform = () => {
           name='username'
           type="text"
           placeholder="Enter your name"
+          required
+          defaultValue={user?.displayName}
         />
       </div>
       <div className="mb-4">
@@ -43,6 +45,8 @@ const Contactform = () => {
           name='email'
           type="email"
           placeholder="Enter your email"
+          required
+          defaultValue={user?.email}
         />
       </div>
       <div className="mb-4">
