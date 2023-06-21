@@ -1,15 +1,17 @@
 
-import  { useState } from 'react'
+import  { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { AiOutlineAlignCenter } from "react-icons/ai";
+import { AuthContext } from '../../Firebase/Authprobider';
 
 const Nav = () => {
-    const user = null
+    const {user} = useContext(AuthContext)
     let Links =[
       {name:"Home",link:"/"},
       {name:"Menu",link:"/menu"},
       {name:"Contact",link:"/contact"},
       {name:user?'Myorder':'',link:"/myorder"},
+      {name:user?<img className='w-11 h-11 rounded-full' src={user?.photoURL}></img>:''}
     ];
    
     let [open,setOpen]=useState(false);

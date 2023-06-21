@@ -1,17 +1,18 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../Firebase/Authprobider";
+
 import { useContext, useState } from "react";
 
 import loginAnimation from '../../../public/119048-login-verification.json'
 import Lottie from "lottie-react";
 import Swal from 'sweetalert2'
 import { AiFillEye } from "react-icons/ai";
+import { AuthContext } from "../../Firebase/Authprobider";
 const LoginPage = () => {
   const [text,settext] = useState(true)
   const { register, handleSubmit } = useForm();
-//   const {LoginIn,googleLogin} = useContext(AuthContext)
+  const {LoginIn,googleLogin} = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
@@ -19,18 +20,18 @@ const LoginPage = () => {
   const onSubmit = (data) => {
     // Handle login logic here
     console.log(data);
-    // LoginIn(data.email,data.password)
-    // .then(res=>{
-    //   console.log(res.user)
-    //   Swal.fire({
-    //     position: 'center',
-    //     icon: 'success',
-    //     title: 'LogIn Successfull ',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   })
-    //   navigate(from,{replace:true})
-    // })
+    LoginIn(data.email,data.password)
+    .then(res=>{
+      console.log(res.user)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'LogIn Successfull ',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      navigate(from,{replace:true})
+    })
   };
 
 //   const googleLoginhandle = ()=>{

@@ -1,11 +1,11 @@
 
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle, AiFillYoutube } from 
 "react-icons/ai";
-
-
+import  { useContext } from 'react'
+import { AuthContext } from '../../Firebase/Authprobider';
 const Contactform = () => {
   
-  const user = null
+  const {user} = useContext(AuthContext)
     return (
         <div className="bg-[f8f7f2] mt-4 md:gap-4 max-w-[1000px] mx-auto py-[20px] flex flex-col md:justify-between md:flex-row">
             <div className="w-full md:w-2/3">
