@@ -37,6 +37,13 @@ const LoginPage = () => {
   const googleLoginhandle = ()=>{
     googleLogin()
     .then(res=>{
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'LogIn Successfull ',
+        showConfirmButton: false,
+        timer: 1500
+      })
       const logedInUser = res.user
 const saveUser = {name:logedInUser.displayName,email:logedInUser.email,image:logedInUser.photoURL}
       fetch(`${import.meta.env.VITE_URL}/user`,{

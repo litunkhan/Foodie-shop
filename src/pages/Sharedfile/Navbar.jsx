@@ -10,6 +10,7 @@ const Nav = () => {
       {name:"Home",link:"/"},
       {name:"Menu",link:"/menu"},
       {name:"Contact",link:"/contact"},
+      {name:user?'Dashboard':'',link:"/dashboard"},
       {name:user?'Myorder':'',link:"/myorder"},
       {name:user?<img className='w-11 h-11 rounded-full' src={user?.photoURL}></img>:''}
     ];

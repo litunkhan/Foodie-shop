@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 
 // import axios from 'axios';
 import app from './firebase.config';
+import axios from 'axios';
 
 
 export const AuthContext = createContext()
@@ -36,22 +37,22 @@ const Authprobider = ({children}) => {
           const unSubcribe =onAuthStateChanged(auth, (user) => {
             
              setuser(user)
-             setloader(false);
+            //  setloader(false);
 
 
-            //  if(user){
-            //    axios.post(`${import.meta.env.VITE_URL}/jwt` ,{
-            //      email:user.email
-            //    }).then(data =>{
+             if(user){
+               axios.post(`${import.meta.env.VITE_URL}/jwt` ,{
+                 email:user.email
+               }).then(data =>{
                  
-            //      console.log(data.data.token);
-            //      localStorage.setItem("access-token",data.data.token)
-            //      setloader(false);
-            //    })
-            //   }
-            //   else{
-            //    localStorage.removeItem("access-token");
-            //   }
+                 console.log(data.data.token);
+                 localStorage.setItem("accesstoken",data.data.token)
+                 setloader(false);
+               })
+              }
+              else{
+               localStorage.removeItem("accesstoken");
+              }
 });
           return ()=>{
            return  unSubcribe()
