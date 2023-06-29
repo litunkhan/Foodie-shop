@@ -18,6 +18,11 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Manageitem from './pages/Dashboard/Admindashboard/Manageitem';
+import Menu from './pages/Menu/Menu';
+import Myorders from './pages/Dashboard/Userdashboard/Myorders';
+import Privateroute from './pages/Privateroutes/Privatesroute';
+import Payment from './pages/Dashboard/Userdashboard/Payment';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -34,6 +39,10 @@ const router = createBrowserRouter([
         element:<Contact></Contact>
       },
       {
+        path:'/menu',
+        element:<Menu></Menu> 
+      },
+      {
         path:'/login',
         element:<LoginPage></LoginPage>
       },
@@ -46,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path:'dashboard',
-    element:<Dashboard></Dashboard>,
+    element:<Privateroute><Dashboard></Dashboard></Privateroute>,
     children:[
        {
          path:'additem',
@@ -55,6 +64,18 @@ const router = createBrowserRouter([
        {
         path:'alluser',
         element:<Alluser></Alluser>
+       },
+       {
+        path:'manageitem',
+        element:<Manageitem></Manageitem>
+       },
+       {
+         path:'myorder',
+         element:<Myorders></Myorders>
+       },
+       {
+        path:'/dashboard/payment',
+        element:<Payment></Payment>
        }
     ]
   }

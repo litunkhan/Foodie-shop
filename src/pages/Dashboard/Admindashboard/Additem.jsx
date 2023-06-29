@@ -35,7 +35,8 @@ const Additem = () => {
           recipe,
           image:data.data.display_url,
           category,
-          price
+          price,
+          date:new Date()
       }
       console.log(items)
       fetch(`${import.meta.env.VITE_URL}/menu`,{
@@ -154,7 +155,7 @@ const Additem = () => {
         </button>
       </div>
       {images&&(
-        <img src={images} alt="foodimage"/>
+        <img className=' w-full mt-2 md:w-[300px]' src={images} alt="foodimage"/>
       )}
         </form>
         

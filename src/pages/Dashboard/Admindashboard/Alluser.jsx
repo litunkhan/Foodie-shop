@@ -15,7 +15,7 @@ const Alluser = () => {
   console.log(users)
 
   const handleAdmin = (admin)=>{
-    fetch(`http://localhost:5000/user/admin/${admin._id}`,{
+    fetch(`${import.meta.env.VITE_URL}/user/admin/${admin._id}`,{
      method:"PATCH"
     })
     .then(res=>res.json())

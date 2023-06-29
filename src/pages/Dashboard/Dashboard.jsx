@@ -2,13 +2,19 @@ import { useContext, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Firebase/Authprobider";
 import { AiFillLeftSquare,AiFillRightSquare} from "react-icons/ai";
+import useAdmin from "../hooks/useAdmin";
 
 
 
 const Dashboard = () => {
-    const admin = true
+    // const admin = true
     const[open,setopen] = useState(false)
     const {user} = useContext(AuthContext)
+    const [admin,isAdminLoading] = useAdmin()
+
+    if(isAdminLoading){
+      return <div><p>Loading...</p></div>
+    }
     return (
       <>
        <div className="h-11  rounded-sm bg-white flex items-center">
@@ -41,7 +47,7 @@ const Dashboard = () => {
         <ul className="menu  p-4 w-80 bg-white/10 backdrop-filter backdrop-blur-lg min-h-[86vh]   text-base-content md:pt-12 text-white">
       
       {
-        admin?<>
+        admin.admin?<>
        {console.log(admin.admin)}
   <li className="mb-2 "><NavLink to={'adminhome'}
        className={({ isActive, isPending }) =>
@@ -53,7 +59,7 @@ const Dashboard = () => {
         isPending ? "pending" : isActive ? "text-white" : ""}
       ><i className="fas fa-utensils"></i>Add Items</NavLink></li>
   
-      <li className="mb-2"><NavLink to={'manageitems'}
+      <li className="mb-2"><NavLink to={'manageitem'}
         className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-white" : ""}
       ><i className="fa-solid fa-pen-to-square"></i>
