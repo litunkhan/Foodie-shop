@@ -1,17 +1,19 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-
+import Swal from 'sweetalert2'
 import {CardElement,  useElements, useStripe} from '@stripe/react-stripe-js';
 import { useContext } from 'react';
 import { useEffect, useState } from 'react';
 import { AuthContext } from '../../../Firebase/Authprobider';
-const Cheakoutform = ({price}) => {
+const Cheakoutform = ({price,cart}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [carderror,setcarderror] = useState('')
     const {user} = useContext(AuthContext)
     const token = localStorage.getItem('accesstoken')
     const [clientSecrets,setClientSecret] = useState('')
+    const [proccesing,setProccesing] = useState(false)
+    const[transactionId,settransectionId] = useState('')
     useEffect(()=>{
         fetch(`${import.meta.env.VITE_URL}/create-payment-intent`,{
             method:'POST',
@@ -48,6 +50,7 @@ const Cheakoutform = ({price}) => {
 
         console.log(card)
 
+        
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type:'card',
             card
@@ -61,6 +64,7 @@ const Cheakoutform = ({price}) => {
             console.log('[PaymentMethod]', paymentMethod);
           }
 
+          setProccesing(true)
           const {paymentIntent, errors} = await stripe.confirmCardPayment(
             clientSecrets,
             {
@@ -77,6 +81,49 @@ const Cheakoutform = ({price}) => {
             console.log(errors)
           }
           console.log(paymentIntent)
+
+          setProccesing(false)
+
+          if(paymentIntent.status === 'succeeded'){
+            const transecTionId = paymentIntent.id
+            settransectionId(transecTionId)
+
+            const payment = {
+                email:user?.email,
+                transecTionId:paymentIntent.id,
+                price:price,
+                quantity:cart.length,
+                item:cart.map(items=>items._id),
+                itemName:cart.map(items=>items.name),
+                date:new Date()
+
+            }
+          
+            fetch(`${import.meta.env.VITE_URL}/payments`,{
+              method:'POST',
+              headers:{
+                  'Content-Type':'application/json',
+                  authorization: `bearer ${token}`
+                  
+  
+              },
+              body:JSON.stringify(payment)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+              console.log(data)
+              if(data.insertedId){
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Payment complete',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }
+          })
+
+          }
         }
     return (
         <div>
@@ -97,7 +144,7 @@ const Cheakoutform = ({price}) => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe || !clientSecrets}>
+      <button type="submit" disabled={!stripe || !clientSecrets || proccesing}>
         Pay
       </button>
     </form>
@@ -108,6 +155,13 @@ const Cheakoutform = ({price}) => {
                     <p className='text-red'>{carderror}</p>
                 </div>
             )
+        }
+        {
+          transactionId&&(
+            <div>
+                    <p className='text-green-600'>Payment Completed Successfully{transactionId}</p>
+                </div>
+          )
         }
      </div>
         </div>
