@@ -23,6 +23,8 @@ import Menu from './pages/Menu/Menu';
 import Myorders from './pages/Dashboard/Userdashboard/Myorders';
 import Privateroute from './pages/Privateroutes/Privatesroute';
 import Payment from './pages/Dashboard/Userdashboard/Payment';
+import Adminhome from './pages/Dashboard/Admindashboard/Adminhome';
+import Userhome from './pages/Dashboard/Userdashboard/Userhome';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
         element:<Alluser></Alluser>
        },
        {
+         path:'adminhome',
+         element:<Adminhome/>
+       },
+       {
         path:'manageitem',
         element:<Manageitem></Manageitem>
        },
@@ -74,9 +80,14 @@ const router = createBrowserRouter([
          element:<Myorders></Myorders>
        },
        {
+         path:'userhome',
+         element:<Userhome/>
+       },
+       {
         path:'/dashboard/payment',
         element:<Payment></Payment>
-       }
+       },
+      
     ]
   }
 ]);

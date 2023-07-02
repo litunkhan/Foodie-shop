@@ -112,7 +112,7 @@ const Cheakoutform = ({price,cart}) => {
           .then(res=>res.json())
           .then(data=>{
               console.log(data)
-              if(data.insertedId){
+              if(data.result.insertedId){
                 Swal.fire({
                   position: 'top-end',
                   icon: 'success',

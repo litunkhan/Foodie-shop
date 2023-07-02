@@ -4,17 +4,25 @@ import { Link, NavLink } from 'react-router-dom';
 import { AiOutlineAlignCenter } from "react-icons/ai";
 import { AuthContext } from '../../Firebase/Authprobider';
 
+
+
+
 const Nav = () => {
     const {user,logOut} = useContext(AuthContext)
-    let Links =[
+  
+    
+        
+  let Links =[
       {name:"Home",link:"/"},
       {name:"Menu",link:"/menu"},
       {name:"Contact",link:"/contact"},
-      {name:user?'Dashboard':'',link:"/dashboard"},
+      {name:user?'Dashboard':'',link:'dashboard'},
       {name:user?<img className='w-11 h-11 rounded-full' src={user?.photoURL}></img>:''}
     ];
    
     let [open,setOpen]=useState(false);
+
+    
   return (
     <div className=' w-full fixed top-0 left-0 z-50'>
       <div className='md:flex bg-black bg-opacity-40 items-center justify-between  py-4 md:px-10 px-7'>

@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Firebase/Authprobider";
 import { AiFillLeftSquare,AiFillRightSquare} from "react-icons/ai";
 import useAdmin from "../hooks/useAdmin";
+import useOrder from "../hooks/useHooks";
 
 
 
@@ -11,6 +12,7 @@ const Dashboard = () => {
     const[open,setopen] = useState(false)
     const {user} = useContext(AuthContext)
     const [admin,isAdminLoading] = useAdmin()
+    const[orders] = useOrder()
 
     if(isAdminLoading){
       return <div><p>Loading...</p></div>
@@ -88,7 +90,7 @@ const Dashboard = () => {
       <li className="mb-2"><NavLink to={'myorder'}
         className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-white" : ""}
-      ><i className="fas fa-shopping-cart"></i>My order</NavLink></li>
+      ><i className="fas fa-shopping-cart"></i>My order {orders?.length}</NavLink></li>
   
       <li className="mb-2"><NavLink to={'paymenthistory'}
         className={({ isActive, isPending }) =>
