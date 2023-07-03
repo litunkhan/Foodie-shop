@@ -62,7 +62,9 @@ return (
       
       {/* Render menu items here */}
       {loading&&(
-        <div><h2 className='text-center font-bold text-2xl'>Loading...</h2></div>
+          <div className="flex justify-center items-center">
+         <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-gray-900"></div>
+       </div>
       )}
       <div className='grid mb-6 gap-4 max-w-[1200px] mx-auto grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
       {menu.map(foods=>{
