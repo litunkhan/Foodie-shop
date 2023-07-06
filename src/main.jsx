@@ -25,6 +25,8 @@ import Privateroute from './pages/Privateroutes/Privatesroute';
 import Payment from './pages/Dashboard/Userdashboard/Payment';
 import Adminhome from './pages/Dashboard/Admindashboard/Adminhome';
 import Userhome from './pages/Dashboard/Userdashboard/Userhome';
+import Reviewsection from './pages/Dashboard/Userdashboard/Reviewsection';
+import Paymenthistory from './pages/Dashboard/Userdashboard/Paymenthistory';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
        {
          path:'userhome',
          element:<Userhome/>
+       },
+       {
+          path:'review',
+          element:<Reviewsection/>
+       },
+       {
+         path:'paymenthistory',
+         element:<Paymenthistory/>
        },
        {
         path:'/dashboard/payment',

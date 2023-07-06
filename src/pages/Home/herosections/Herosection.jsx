@@ -1,9 +1,9 @@
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import images1 from './burger.jpg'
-import images2 from './pizza3.jpg'
-import images3 from './saladwinsbanner.jpg'
+import images1 from './jonathan-borba-8l8Yl2ruUsg-unsplash.jpg'
+import images2 from './04.jpg'
+import images3 from './02.jpg'
 const Herosection = () => {
     return (
         <div className='relative  z-[-10] '>
@@ -12,18 +12,18 @@ const Herosection = () => {
              autoPlay={true}
              infiniteLoop={true}
              transitionTime={8}>
-                <div>
-                    <img className=' h-[50vh]  md:h-[100vh]' src={images1} alt='image-1'/>
-                    
-                </div>
-                <div>
-                    <img className=' h-[50vh] md:h-[100vh]'  src={images2}alt='image-2' />
-                    
-                </div>
-                <div>
-                    <img className='h-[50vh] md:h-[100vh]' src={images3}alt='image-3' />
-                   
-                </div>
+              <div className=" h-[50vh] md:h-[100vh]">
+              <img src={images3} alt="food-image" />
+              </div>
+
+                <div className=" h-[50vh] md:h-[100vh]">
+                <img src={images2} alt="food-image" />
+          </div>
+
+    <div className=" h-[50vh] md:h-[100vh]">
+    <img src={images1} alt="food-image" />
+     </div>
+           
             </Carousel>
         </div>
     );

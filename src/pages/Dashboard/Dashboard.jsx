@@ -44,7 +44,7 @@ const Dashboard = () => {
       <img className="h-10 w-10 rounded-full mr-1 ml-auto" src={user?.photoURL} alt="" />
 
         </div>
-        <div className="bg-[#343541] pt-0 min-h-[100vh] p-10 flex flex-col md:flex-row">
+        <div className="bg-[#343541]  pt-0 min-h-[100vh] p-10 flex flex-col md:flex-row">
         <div className={open?'ml-[-355px] duration-500':'ml-0 duration-500 relative '}>
         <ul className="menu  p-4 w-80 bg-white/10 backdrop-filter backdrop-blur-lg min-h-[86vh]   text-base-content md:pt-12 text-white">
       
@@ -104,7 +104,7 @@ const Dashboard = () => {
       ><i className="fas fa-calendar-alt"></i>
       Reservation</NavLink></li>
   
-      <li className="mb-2"><NavLink to={'reviews'}
+      <li className="mb-2"><NavLink to={'review'}
         className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-white" : ""}
       ><i className="fas fa-star"></i>
