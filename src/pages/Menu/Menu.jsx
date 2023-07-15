@@ -7,6 +7,7 @@ import useMenu from '../hooks/useMenu';
 import banner from './GettyImages-food-habits-eating-personality-1200.jpg';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Firebase/Authprobider';
+import useTitle from '../hooks/useTitle';
 const Menu = () => {
   const [menu, loading, setsearch] = useMenu();
 const[,refetch] = useOrder()
@@ -43,6 +44,7 @@ const {user} = useContext(AuthContext)
         }
     })
  }
+ useTitle('Menus')
 return (
     <>
       <div className="flex items-center justify-center h-[320px] bg-cover bg-center" style={{ backgroundImage: `url(${banner})` }}>

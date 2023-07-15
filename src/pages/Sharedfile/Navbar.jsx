@@ -4,7 +4,7 @@ import  { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { AiOutlineAlignCenter } from "react-icons/ai";
 import { AuthContext } from '../../Firebase/Authprobider';
-import useAdmin from '../hooks/useAdmin';
+
 
 
 
@@ -15,7 +15,7 @@ const Nav = () => {
     
 
     
-      const [admin] = useAdmin();
+      
     
     
         
@@ -23,7 +23,7 @@ const Nav = () => {
       {name:"Home",link:"/"},
       {name:"Menu",link:"/menu"},
       {name:"Contact",link:"/contact"},
-      {name:user?'Dashboard':'',link:admin?.admin?'dashboard/adminhome':'/dashboard/userhome'},
+      {name:user?'Dashboard':'',link:'dashboard'},
       {name:user?<img className='w-11 h-11 rounded-full' src={user?.photoURL}></img>:''}
     ];
    

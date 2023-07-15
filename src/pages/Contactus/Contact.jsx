@@ -1,7 +1,9 @@
 
+import useTitle from '../hooks/useTitle';
 import Contactform from './Contactform';
 import image from './l-intro-1670029550.jpg'
 const Contact = () => {
+  useTitle('Contact')
     return (
         <>
         <div className="flex items-center justify-center  h-[290px] bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>

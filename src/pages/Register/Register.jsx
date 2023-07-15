@@ -8,6 +8,7 @@ import { AiFillEye } from "react-icons/ai";
 import loginAnimation from '../../../public/119048-login-verification.json'
 import Lottie from "lottie-react";
 import { AuthContext } from "../../Firebase/Authprobider";
+import useTitle from "../hooks/useTitle";
 
 const RegistrationPage = () => {
   const [text,settext] = useState(true)
@@ -50,6 +51,7 @@ const RegistrationPage = () => {
        })
   };
 
+  useTitle('Register')
   return (
     <div className=" max-w-[1000px] p-5 min-h-screen my-20 flex items-center justify-between mx-auto  bg-gray-100 flex-col-reverse  md:flex-row ">
         <Lottie animationData={loginAnimation}/>

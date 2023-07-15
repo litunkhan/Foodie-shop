@@ -9,6 +9,7 @@ import Lottie from "lottie-react";
 import Swal from 'sweetalert2'
 import { AiFillEye } from "react-icons/ai";
 import { AuthContext } from "../../Firebase/Authprobider";
+import useTitle from "../hooks/useTitle";
 const LoginPage = () => {
   const [text,settext] = useState(true)
   const { register, handleSubmit } = useForm();
@@ -64,7 +65,7 @@ const saveUser = {name:logedInUser.displayName,email:logedInUser.email,image:log
       
    })
   }
-
+       useTitle('Login')
   return (
     <div className="min-h-screen max-w-[1000px] mx-auto my-20 flex items-center justify-between bg-gray-100 flex-col-reverse  md:flex-row ">
         <Lottie animationData={loginAnimation}/>

@@ -4,6 +4,7 @@ import { AuthContext } from "../../Firebase/Authprobider";
 import { AiFillLeftSquare,AiFillRightSquare} from "react-icons/ai";
 import useAdmin from "../hooks/useAdmin";
 import useOrder from "../hooks/useHooks";
+import useTitle from "../hooks/useTitle";
 
 
 
@@ -13,10 +14,12 @@ const Dashboard = () => {
     const {user} = useContext(AuthContext)
     const [admin,isAdminLoading] = useAdmin()
     const[orders] = useOrder()
-
+    useTitle('Dashboard')
     if(isAdminLoading){
       return <div><p>Loading...</p></div>
     }
+
+   
     return (
       <>
        <div className="h-11  rounded-sm bg-white flex items-center">
@@ -98,11 +101,7 @@ const Dashboard = () => {
       ><i className="fas fa-history"></i>
       Payment history</NavLink></li>
   
-      <li className="mb-2 "><NavLink to={'reservation'}
-         className={({ isActive, isPending }) =>
-         isPending ? "pending" : isActive ? "text-white" : ""}
-      ><i className="fas fa-calendar-alt"></i>
-      Reservation</NavLink></li>
+     
   
       <li className="mb-2"><NavLink to={'review'}
         className={({ isActive, isPending }) =>
