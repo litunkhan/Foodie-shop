@@ -1,5 +1,5 @@
 
-## Summer-camp
+## Foodie-Shop
 
 This is a Mern stack project and this project is all about online platform for users to order
 food
